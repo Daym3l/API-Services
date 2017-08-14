@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr" class="uk-notouch" ng-app="app" ng-controller="appController">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Title</title>
+    <link href="images/logo_black.svg" type="image/x-icon" rel="shortcut icon">
+
+    <link rel="stylesheet" type="text/css" href="js/libs/uikit-2.26.3/css/uikit.gradient.min.css">
+    <link rel="stylesheet" type="text/css" href="js/libs/uikit-2.26.3/css/uikit.almost-flat.min.css">
+    <link rel="stylesheet" type="text/css" href="js/libs/uikit-2.26.3/css/components/sticky.almost-flat.min.css">
+    <link rel="stylesheet" type="text/css" href="js/libs/uikit-2.26.3/css/components/accordion.almost-flat.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="js/libs/uikit-2.26.3/css/components/autocomplete.almost-flat.min.css">
+    <link rel="stylesheet" type="text/css" href="js/libs/uikit-2.26.3/css/components/search.almost-flat.min.css">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+
+    <script type="text/javascript" src="js/libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/libs/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/libs/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/libs/angular/angular_resource.js"></script>
+    <script type="text/javascript" src="js/libs/uikit-2.26.3/js/uikit.min.js"></script>
+    <script type="text/javascript" src="js/libs/uikit-2.26.3/js/components/parallax.min.js"></script>
+    <script type="text/javascript" src="js/libs/uikit-2.26.3/js/components/grid.min.js"></script>
+    <script type="text/javascript" src="js/libs/uikit-2.26.3/js/components/sticky.min.js"></script>
+    <script type="text/javascript" src="js/libs/uikit-2.26.3/js/components/autocomplete.min.js"></script>
+    <script type="text/javascript" src="js/libs/uikit-2.26.3/js/components/accordion.min.js"></script>
+    <script type="text/javascript" src="js/libs/uikit-2.26.3/js/components/search.min.js"></script>
+
+
+    <script type="text/javascript" src="js/manipularDatos.js"></script>
+
+
+</head>
+<body class="api-background" ng-controller="appController">
+
+
+<!--Cabecera con IMG-->
+<header class="api-header" data-uk-parallax="{bg:-300}">
+    <div class="api-header-inner" data-uk-parallax="{opacity:0, viewport:0.7, y:50}">
+        <h1 class="uk-hidden-small">Title</h1>
+
+        <h2 class="uk-hidden-small">Title description</h2>
+    </div>
+
+</header>
+
+<!--barra de navegación-->
+<nav class=" api-navbar uk-navbar  uk-navbar-attached"
+     data-uk-sticky="{clsactive: 'uk-navbar-attached', top: -90,animation: 'uk-animation-slide-top'}">
+
+    <div class="uk-container uk-container-center">
+
+        <a href="#" class="uk-navbar-brand uk-hidden-small" data-uk-smooth-scroll="" ng-click="cambiarVisibilidad()">
+            <img class="api-img" height="25" width="25" alt="Api de servicios"
+                 src="images/logo_white.svg">Title</a>
+        <ul class="uk-navbar-nav uk-visible-large" data-uk-scrollspy-nav="{closest:'li', smoothscroll:{offset:90}}">
+
+            <li><a href="#module1">module 1</a></li>
+            <li><a href="#module2">Module 2</a></li>
+            <li><a href="#module3">Module 3</a></li>
+            <li><a href="#module4">Module 4</a></li>
+
+        </ul>
+
+        <div class="uk-navbar-flip uk-visible-large">
+            <div class="uk-navbar-content">
+                <form class="uk-search">
+                    <input type="search" placeholder="search..." class="uk-search-field" ng-model="busqueda">
+                </form>
+            </div>
+        </div>
+        <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""></a>
+        <a href="#" class="uk-navbar-brand uk-visible-small" ng-click="cambiarVisibilidad()">
+            <img class="api-img" height="25" width="25" alt="Title"
+                 src="images/logo_white.svg">API Servicios</a>
+    </div>
+</nav>
+
+<!--Contenido-->
+<div class="api-middle">
+    <div class="uk-container uk-container-center">
+        <div class="uk-grid" data-uk-grid-margin="">
+            <div class="api-sidebar uk-width-medium-1-3 uk-hidden-small uk-row-first">
+
+                <ul class="api-nav uk-nav" data-uk-nav="">
+
+                    <ul class="uk-nav-header" id="module1"><b>Module 1</b> </ul>
+                    <li ng-repeat="data in serConfiguracion | filter: busqueda">
+                        <a ng-click="clickSimple($event)"> {{data.title}}</a>
+                    </li>
+                    <ul class="uk-nav-header" id="module2"> <b>Module 2</b></ul>
+                    <li ng-repeat="data in serNomenclador | filter: busqueda ">
+                        <a ng-click="clickSimple($event)"> {{data.title}}</a>
+                    </li>
+                    <ul class="uk-nav-header" id="module3"> <b>Module 3</b></ul>
+                    <li ng-repeat="data in sermodule3 | filter: busqueda">
+                        <a href="#{{data.title}}" ng-click="clickSimple($event)"> {{data.title}}</a>
+                    </li>
+                    <ul class="uk-nav-header" id="module4"> <b>Module 4</b></ul>
+                    <li ng-repeat="data in sermodule4 | filter: busqueda">
+                        <a href="#{{data.title}}" ng-click="clickSimple($event)"> {{data.title}}</a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="api-main uk-width-medium-3-5">
+                <article class="uk-article" ng-show="visibilidad">
+
+                    <h1 class="uk-article-title"> {{titulo}}</h1>
+
+                    <p class="uk-text-justify"> {{descripcion }} </p>
+
+                    <p class="uk-article-lead">{{module1.title}}</p>
+
+                    <p class="uk-text-justify">Module Description
+                    </p>
+
+                    <p class="uk-article-lead">{{module1.title}}</p>
+
+                    <p class="uk-text-justify">{{module1.propiedades[0].descripcion}}</p>
+
+                    <p class="uk-article-lead">{{module3.title}}</p>
+
+                    <p class="uk-text-justify">{{module3.propiedades[0].descripcion}}</p>
+
+                    <p class="uk-article-lead">{{module4.title}}</p>
+
+                    <p class="uk-text-justify">{{module4.propiedades[0].descripcion}}</p>
+                    <hr class="uk-article-divider">
+                    <p class="uk-article-lead"> <a
+                            href="http://some dir">
+
+                        <br><code> code dir </code> </a>
+                    </p>
+
+                    <p class="uk-article-meta">description </p>
+                    <hr class="uk-article-divider">
+                    <h4 id="conceptos">Modules</h4>
+                    <dl class="uk-description-list-line">
+                        <dt>Description</dt>
+                        <dd>Put some text here</code>
+                        </dd>
+
+                    </dl>
+
+
+                </article>
+                <div data-uk-sticky="{top:90}">
+                    <article class="uk-article" id="{{datos.title}}" ng-show="visible">
+                        <h1 class="uk-article-title"> {{datos.title}}</h1>
+
+                        <p><b>Conector: </b>metadatos</p>
+
+                        <p><b>Clase: </b>{{datos.interfaz}}</p>
+
+                        <p><b>Metodo: </b><code>{{datos.metodo}}</code></p>
+
+                        <p><b>Return: </b><code>{{datos.type}}</code></p>
+
+                        <p><b>Versión: </b>{{datos.version}}</p>
+
+                        <p class="uk-text-justify">{{datos.descripcion}}</p>
+                        <hr class="uk-article-divider">
+                        <ul class="uk-list uk-list-line uk-article-lead"><b>Parametros que recibe.</b></ul>
+                        <div class="uk-overflow-container">
+                            <table class="uk-table uk-table-hover uk-table-condensed uk-table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Tipo de dato</th>
+                                    <th>Descripción</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="data in parametros">
+                                    <td>{{data.title}}</td>
+                                    <td><code>{{data.type}}</code></td>
+                                    <td>{{data.descripcion}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!--side bar-->
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <div class=" uk-nav-offcanvas">
+            <form class="uk-search">
+                <input type="search" placeholder="search ..." class="uk-search-field" ng-model="buscar">
+            </form>
+        </div>
+        <ul class="uk-nav uk-nav-offcanvas" data-uk-nav="">
+
+            <ul class="uk-nav-header"> Module 1</ul>
+            <li ng-repeat="data in serConfiguracion | filter: buscar">
+                <a ng-click="clickSimple($event)"> {{data.title}}</a>
+            </li>
+            <ul class="uk-nav-header">Module 2</ul>
+            <li ng-repeat="data in serNomenclador | filter: buscar ">
+                <a ng-click="clickSimple($event)"> {{data.title}}</a>
+            </li>
+            <ul class="uk-nav-header">Module 3</ul>
+            <li ng-repeat="data in sermodule3 | filter: buscar">
+                <a href="#" ng-click="clickSimple($event)" data-uk-smooth-scroll> {{data.title}}</a>
+            </li>
+            <ul class="uk-nav-header"> Module 4</ul>
+            <li ng-repeat="data in sermodule4 | filter: buscar">
+                <a href="#" ng-click="clickSimple($event)" data-uk-smooth-scroll> {{data.title}}</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!--pie de pagina-->
+<div class="api-footer uk-hidden-small" id="pie_pag">
+    <div class="uk-container uk-container-center uk-text-center">
+        <a href="#" class="uk-icon-angle-double-up" data-uk-smooth-scroll=""></a><br>
+        <ul class="uk-subnav uk-subnav-line uk-flex-center">
+            <li><a href="http://link1">link1</a></li>
+            <li><a href="http://link2">link2</a></li>
+            <li><a href="http://link3">link3</a></li>
+            <li><a href="http://link4">link4</a></li>
+        </ul>
+        <div class="uk-panel">
+            <p>
+                Diseño y Desarrollo:<br>
+                Ing. Daymel Machado Cabrera
+                <br>
+                <b>Copyright © 2016</b>
+            </p>
+
+            <a href="link5"><img height="60" width="120" alt="image" >
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
