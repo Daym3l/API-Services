@@ -15,13 +15,9 @@ app.controller("appController", function ($scope, $http) {
             $scope.titulo = data.results.conector.title;
             $scope.descripcion = data.results.conector.propiedades.descripcion;
             $scope.sermodule1 = data.results.conector.componentes.componente[0].servicio;
-            $scope.sermodule2 = data.results.conector.componentes.componente[1].servicio;
-            $scope.sermodule3 = data.results.conector.componentes.componente[2].servicio;
-            $scope.sermodule4 = data.results.conector.componentes.componente[3].servicio;
+
             $scope.module1 = data.results.conector.componentes.componente[0];
-            $scope.module2 = data.results.conector.componentes.componente[1];
-            $scope.module3 = data.results.conector.componentes.componente[2];
-            $scope.module4 = data.results.conector.componentes.componente[3];
+
 
         }).
         error(function (data, status, headers, config) {

@@ -57,9 +57,7 @@
         <ul class="uk-navbar-nav uk-visible-large" data-uk-scrollspy-nav="{closest:'li', smoothscroll:{offset:90}}">
 
             <li><a href="#module1">module 1</a></li>
-            <li><a href="#module2">Module 2</a></li>
-            <li><a href="#module3">Module 3</a></li>
-            <li><a href="#module4">Module 4</a></li>
+
 
         </ul>
 
@@ -81,26 +79,16 @@
 <div class="api-middle">
     <div class="uk-container uk-container-center">
         <div class="uk-grid" data-uk-grid-margin="">
+            <!--mostrar sidebar con pantalla pequenna-->
             <div class="api-sidebar uk-width-medium-1-3 uk-hidden-small uk-row-first">
 
                 <ul class="api-nav uk-nav" data-uk-nav="">
 
                     <ul class="uk-nav-header" id="module1"><b>Module 1</b> </ul>
-                    <li ng-repeat="data in serConfiguracion | filter: busqueda">
+                    <li ng-repeat="data in sermodule1 | filter: busqueda">
                         <a ng-click="clickSimple($event)"> {{data.title}}</a>
                     </li>
-                    <ul class="uk-nav-header" id="module2"> <b>Module 2</b></ul>
-                    <li ng-repeat="data in serNomenclador | filter: busqueda ">
-                        <a ng-click="clickSimple($event)"> {{data.title}}</a>
-                    </li>
-                    <ul class="uk-nav-header" id="module3"> <b>Module 3</b></ul>
-                    <li ng-repeat="data in sermodule3 | filter: busqueda">
-                        <a href="#{{data.title}}" ng-click="clickSimple($event)"> {{data.title}}</a>
-                    </li>
-                    <ul class="uk-nav-header" id="module4"> <b>Module 4</b></ul>
-                    <li ng-repeat="data in sermodule4 | filter: busqueda">
-                        <a href="#{{data.title}}" ng-click="clickSimple($event)"> {{data.title}}</a>
-                    </li>
+
 
                 </ul>
 
@@ -114,23 +102,10 @@
 
                     <p class="uk-article-lead">{{module1.title}}</p>
 
-                    <p class="uk-text-justify">Module Description
-                    </p>
-
-                    <p class="uk-article-lead">{{module1.title}}</p>
-
                     <p class="uk-text-justify">{{module1.propiedades[0].descripcion}}</p>
 
-                    <p class="uk-article-lead">{{module3.title}}</p>
-
-                    <p class="uk-text-justify">{{module3.propiedades[0].descripcion}}</p>
-
-                    <p class="uk-article-lead">{{module4.title}}</p>
-
-                    <p class="uk-text-justify">{{module4.propiedades[0].descripcion}}</p>
                     <hr class="uk-article-divider">
-                    <p class="uk-article-lead"> <a
-                            href="http://some dir">
+                    <p class="uk-article-lead"> put something.., <a href="http://some dir">
 
                         <br><code> code dir </code> </a>
                     </p>
@@ -150,8 +125,6 @@
                 <div data-uk-sticky="{top:90}">
                     <article class="uk-article" id="{{datos.title}}" ng-show="visible">
                         <h1 class="uk-article-title"> {{datos.title}}</h1>
-
-                        <p><b>Conector: </b>metadatos</p>
 
                         <p><b>Clase: </b>{{datos.interfaz}}</p>
 
@@ -204,21 +177,10 @@
         <ul class="uk-nav uk-nav-offcanvas" data-uk-nav="">
 
             <ul class="uk-nav-header"> Module 1</ul>
-            <li ng-repeat="data in serConfiguracion | filter: buscar">
+            <li ng-repeat="data in sermodule1 | filter: buscar">
                 <a ng-click="clickSimple($event)"> {{data.title}}</a>
             </li>
-            <ul class="uk-nav-header">Module 2</ul>
-            <li ng-repeat="data in serNomenclador | filter: buscar ">
-                <a ng-click="clickSimple($event)"> {{data.title}}</a>
-            </li>
-            <ul class="uk-nav-header">Module 3</ul>
-            <li ng-repeat="data in sermodule3 | filter: buscar">
-                <a href="#" ng-click="clickSimple($event)" data-uk-smooth-scroll> {{data.title}}</a>
-            </li>
-            <ul class="uk-nav-header"> Module 4</ul>
-            <li ng-repeat="data in sermodule4 | filter: buscar">
-                <a href="#" ng-click="clickSimple($event)" data-uk-smooth-scroll> {{data.title}}</a>
-            </li>
+
 
         </ul>
     </div>
