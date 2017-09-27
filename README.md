@@ -13,3 +13,9 @@ Sencilla web para mostrar servicios, clases, métodos y atributos a modo informa
 
 
    ### Creando un json
+   
+   * crear un <code>data.json</code> con la estructura deseada, ejemplo:
+   
+   ![stack Overflow](https://github.com/Daym3l/API-Services/blob/master/images/sample_json.png)
+   
+   
