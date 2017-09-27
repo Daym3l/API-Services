@@ -1,24 +1,40 @@
 {
-    "results": [
-        {
-            "title": "Article title",
-            "url": "#",
-            "text": "Lorem ipsum dolor sit amet, consectetur ..."
-        },
-        {
-            "title": "Article title",
-            "url": "#",
-            "text": "Ut enim ad minim veniam, quis nostrud ..."
-        },
-        {
-            "title": "Article title",
-            "url": "#",
-            "text": "Duis aute irure dolor in reprehenderit ..."
-        },
-        {
-            "title": "Article title",
-            "url": "#",
-            "text": "Excepteur sint occaecat cupidatat non ..."
-        }
-    ]
+  "results": {
+    "conector": {
+      "title": "System title",
+      "propiedades": {
+        "descripcion": "descripcion of the system"
+      },
+      "componentes": {
+        "componente": [
+          {
+            "title": "component title",
+            "propiedades": [
+              {
+                "descripcion": "component description",
+                "objetivo": "objetc of component "
+              }
+            ],
+            "servicio": [
+              {
+                "title": "service title",
+                "interfaz": "class",
+                "metodo": "function",
+                "type": "return",
+                "version": "2.1",
+                "descripcion": "description",
+                "parametros": [
+                  {
+                    "title": "param",
+                    "type": "array",
+                    "descripcion": "description"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
 }
